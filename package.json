@@ -1,7 +1,7 @@
 {
-  "name": "Uadmin",
+  "name": "yenaung",
   "version": "1.0.0",
-  "description": "",
+  "description": "// Git Test",
   "main": "index.js",
   "scripts": {
     "test": "mocha server/tests/*.js"
@@ -33,5 +33,13 @@
     "gulp-env": "^0.4.0",
     "gulp-load-plugins": "^1.4.0",
     "gulp-nodemon": "^2.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yenaungideal/idealDevelopmentApi.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yenaungideal/idealDevelopmentApi/issues"
+  },
+  "homepage": "https://github.com/yenaungideal/idealDevelopmentApi#readme"
 }
