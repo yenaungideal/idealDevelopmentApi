@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="MAdmin">
+  <head>
+    <title>IdealFramework</title>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="description" content=""/>
+    <!-- Loading core css-->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,700"/>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,700,300"/>
+    <link rel="stylesheet" href="vendors/jquery-ui-1.10.4.custom/css/ui-lightness/jquery-ui-1.10.4.custom.min.css"/>
+    <link rel="stylesheet" href="vendors/font-awesome/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.min.css"/>
+    <!-- Loading style vendors-->
+    <link type="text/css" rel="stylesheet" href="vendors/animate.css/animate.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/jquery-pace/pace.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/iCheck/skins/all.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/jquery-notific8/jquery.notific8.min.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/bootstrap-daterangepicker/daterangepicker-bs3.css"/>
+    <link type="text/css" rel="stylesheet" href="vendors/calendar/zabuto_calendar.min.css"/>
+    <!-- Loading template style-->
+    <link rel="stylesheet" data-ng-href="css/themes/style1/green-blue.css"/>
+    <link rel="stylesheet" data-ng-href="css/themes/{{style}}/{{theme}}.css"/>
+    <link rel="stylesheet" href="css/style-responsive.css"/>
+
+    <!-- loading style from bower components -->
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-grid/ui-grid.min.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/angular-ui-select/dist/select.css" />
+
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-dialog/css/ngDialog.css">
+    <link rel="stylesheet" type="text/css" href="bower_components/ng-dialog/css/ngDialog-theme-default.css">
+
+    <!-- loading custom css style -->
+    <link rel="stylesheet" type="text/css" href="css/app.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/selectize.default.css"> -->
+
+      <!-- Loading library javascript-->
+    <script src="vendors/jquery-1.10.2.min.js"></script>
+    <script src="js/libs/angular.js"></script>
+  <!--   <script src="js/libs/angular-route.js"></script>
+    <script src="js/libs/angular-ui-router.js"></script>  -->
+    <script src="js/libs/ocLazyLoad.js"></script>
+    <script src="js/libs/ui-bootstrap.js"></script>
+    <script src="vendors/jquery-migrate-1.2.1.min.js"></script>
+    <script src="vendors/jquery-ui.js"></script>
+
+   <!-- Loading bower plugin -->
+    <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.core.css">
+    <link rel="stylesheet" href="bower_components/alertify.js/themes/alertify.default.css">
+    <script src="bower_components/alertify.js/lib/alertify.min.js"></script>
+    <script src="bower_components/angular-ui-select/dist/select.js"></script>
+    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+    <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.js"></script>
+
+    <script src="bower_components/pdfmake/build/pdfmake.js"></script>
+    <script src="bower_components/pdfmake/build/pdfmake.min.js"></script>
+    <script src="bower_components/pdfmake/build/vfs_fonts.js"></script>
+
+    <!-- Loading global plugin-->
+    <script src="vendors/bootstrap/js/bootstrap.min.js"></script>
+    <script src="vendors/bootstrap-hover-dropdown/bootstrap-hover-dropdown.js"></script>
+    <script src="vendors/metisMenu/jquery.metisMenu.js"></script>
+    <script src="vendors/slimScroll/jquery.slimscroll.js"></script>
+    <script src="vendors/jquery-cookie/jquery.cookie.js"></script>
+    <script src="vendors/iCheck/icheck.min.js"></script>
+    <script src="vendors/iCheck/custom.min.js"></script>
+    <script src="vendors/jquery-notific8/jquery.notific8.min.js"></script>
+    <script src="vendors/holder/holder.js"></script>
+    <script src="vendors/responsive-tabs/responsive-tabs.js"></script>
+    <script src="vendors/jquery-news-ticker/jquery.newsTicker.min.js"></script>
+    <script src="vendors/moment/moment.js"></script>
+    <script src="vendors/flot-chart/jquery.flot.js"></script>
+    <script src="vendors/DataTables/media/js/jquery.dataTables.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <!-- Loading core javascript-->
+    <script src="js/main.js"></script>
+    <!--Load script for each page using LazyLoad-->
+
+  </head>
+  <body ng-controller="AppController" ng-class="[header.menu_style, header.menu_collapse, header.header_topbar, header.effect]" class="animated">
+    <div ng-class="header.boxed" class="default-page">
+      <div id="header-topbar-option-demo" ng-include="'templates/states/header.html'" class="page-header-topbar"></div>
+      <div id="wrapper" ng-class="header.layout_menu">
+        <div id="page-wrapper" ng-class="header.animation" class="animated">
+          <div ui-view="" class="page-content"></div>
+        </div>
+        <!-- <div id="footer" ng-include="'templates/states/footer.html'" ng-show="header.footer" class="hide"></div> -->
+      </div>
+    </div>
+
+
+  <!--  application controller configuration  -->
+   <script src="app/pages/header/header.controller.js"></script>
+   <script src="app/services/http.service.js"></script>
+
+  <!--  <script src="app/pages/sidebar/sidebar.controller.js"></script> -->
+   <script src="app/pages/userManagement/auth/login.controller.js"></script>     
+   <script src="app/pages/userManagement/logHistory/logHistory.view.controller.js"></script>
+   <script src="app/pages/userManagement/changePassword/changePassword.controller.js"></script>
+
+   <script src="app/pages/userManagement/user/userManagement.edit.controller.js"></script>
+   <script src="app/pages/userManagement/user/userManagement.view.controller.js"></script>
+
+   <script src="app/pages/userManagement/permission/permission.edit.controller.js"></script>
+   <script src="app/pages/userManagement/permission/permission.view.controller.js"></script>
+
+   <script src="app/pages/userManagement/role/role.edit.controller.js"></script>
+   <script src="app/pages/userManagement/role/role.view.controller.js"></script>
+
+    <!--  application service controller configuration  -->
+   <script src="app/services/menu/menu.service.js"></script>
+   <script src="app/services/userManagement/auth.service.js"></script>
+   <script src="app/services/userManagement/permission.service.js"></script>
+   <script src="app/services/userManagement/role.service.js"></script>
+   <script src="app/services/userManagement/user.service.js"></script>
+   <script src="app/services/userManagement/userPermission.service.js"></script>
+
+
+    <!--Directives-->
+   <script src="app/directive/navbar/navbarMenu.js"></script>
+
+  </body>
+</html>

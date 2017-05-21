@@ -1,0 +1,98 @@
+<style>
+    .modal-body {
+        padding: 0;
+    }
+</style>
+
+<div ng-controller="ctrlPermission">
+    <div class="modal-body">
+        <form name="permissionForm" role="form" novalidate form-on-change="isChanged=true">
+            <div class="panel panel-blue br-color">
+                <div class="panel-heading modalHeading" id="panel-heading">
+                    Permissions
+                    <div class="closeBtn">
+                        <button type="button" id="btnClose" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">×</button>
+                    </div>
+                </div>
+                <div class="panel-body pan">
+                    <div class="modal-body">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <br />
+                        </div>
+
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-2 control-label" for="field-1" style="text-align:left">
+                            Module
+                            <span class="mandatory" style="color:red; font-size: 12pt"> * </span>
+                        </label>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <input name="txtModule" id="txtModule" type="text" class="form-control" ng-model="permission.module" ng-required="isRequired" autocomplete="off" autofocus ng-disabled="disableModule">
+                            <span ng-show="permissionForm.$submitted || permissionForm.txtModule.$touched">
+                                <span ng-show="permissionForm.txtModule.$error.required" class="error">
+                                    Module is required
+                                </span>
+                            </span>
+
+                        </div>
+
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-2 control-label" for="field-1" style="text-align:left">
+                            Name
+
+                            <span class="mandatory" style="color:red; font-size: 12pt"> * </span>
+                        </label>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                            <input name="txtName" id="txtName" type="text" class="form-control" ng-model="permission.name" ng-required="isRequired" autocomplete="off" ng-disabled="disableModule">
+                            <span ng-show="permissionForm.$submitted || permissionForm.txtName.$touched">
+                                <span ng-show="permissionForm.txtName.$error.required" class="error">
+                                    Name is required
+                                </span>
+                            </span>
+
+                        </div>
+ 
+
+                        <div class="hidden-xs hidden-sm hidden-md col-lg-12">
+                            <br />
+                        </div>
+
+                        <label class="col-xs-12 col-sm-12 col-md-12 col-lg-2 control-label" for="field-1" style="text-align:left">
+                            Description
+                        </label>
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+                            <textarea name="txtDescription" id="txtDescription" class="form-control" style="resize:none"
+                                      ng-model="permission.description"></textarea>
+                        </div>
+
+
+                        <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+                            <br />
+                        </div>
+
+
+                        <label class="col-sm-2 control-label" for="field-1" style="text-align:left">
+
+                        </label>
+                        <div class="col-sm-5" style="text-align:left">
+                            <span class="error" ng-bind="customError">
+                            </span>
+
+                        </div>
+                        <div class="col-sm-5" style="text-align:right">
+
+                            <button class="btn btn-primary btn-success" value="Submit" type="Submit" ng-click="permissionForm.$valid && save()" >Save</button>
+                            <button type="button" class="btn btn-white" ng-click="cancel()" >Close</button>
+                        </div>
+
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <br />
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,418 @@
+﻿<style>
+    .alertify-logs {
+        z-index: 999999;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    .tab-maincontainer {
+        margin: 5px;
+    }
+
+    .tab-pane {
+        height: 250px;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+
+
+    .tab-maincontainer {
+        margin: 5px;
+    }
+
+    .custom {
+        width: 60px !important;
+    }
+
+    .button {
+        -moz-appearance: button;
+        /* Firefox */
+        -webkit-appearance: button;
+        /* Safari and Chrome */
+        padding: 10px;
+        margin: 10px;
+        width: 70px;
+    }
+
+    .drop-box {
+        background: #F8F8F8;
+        border: 5px dashed #DDD;
+        width: 200px;
+        height: 65px;
+        text-align: center;
+        padding-top: 25px;
+        margin: 10px;
+    }
+
+    .dragover {
+        border: 5px dashed blue;
+    }
+
+    .progress-wrapper {
+        position: relative;
+        margin: 20px auto;
+        font-size: 40px;
+    }
+
+    .progress {
+        position: absolute;
+        color: #bbb;
+        font-weight: 100;
+        line-height: 1;
+        height: 40px;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 960px;
+        margin: 50px auto 100px;
+        text-align: center;
+    }
+
+    .rowColor .ui-grid-cell-contents {
+        background-color: #ACDFE5;
+    }
+</style>
+
+<div ng-controller="ctrlUserManagement">
+
+    <div class="modal-body">
+        <form name="userManagementForm" id="userManagementForm" role="form" form-on-change="isChanged=true" novalidate>
+            <div class="panel panel-blue br-color">
+                <div class="panel-heading modalHeading" id="panel-heading" ng-hide="hidePanel">
+                    Users
+                    <div class="closeBtn">
+                        <button type="button" id="btnClose" class="close" data-dismiss="modal" aria-hidden="true" ng-click="cancel()">×</button>
+                    </div>
+                </div>
+
+                <div class="panel-body pan" ng-hide="hideUserManagement">
+                    <div class="modal-body">
+                        <div class="tab-maincontainer">
+                            <ul class=" nav nav-tabs">
+                                <li ng-repeat="step in steps" ng-class="{active: $index==getCurrentStepIndex()}">
+                                    <a href="javascript:void(0)" ng-click="goToStep($index)">{{step}}</a>
+                                </li>
+                            </ul>
+                            <div ng-switch on="selection" class="tab-maincontainer">
+                                <div ng-switch-when="Basic Info">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <br />
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-md-3" style="text-align:left" ng-hide="showPanel">
+                                                    <h4 style="font-weight: bold">My Profile</h4>
+                                                </div>
+                                                <div class="col-md-9" ng-hide="showPanel">
+                                                    &nbsp;
+                                                </div>
+
+                                                <div class="col-md-12" ng-hide="showPanel">
+                                                    <br />
+                                                </div>
+
+                                                <div class="col-md-2" style="text-align:left">
+                                                    Login Name
+                                                    <span class="mandatory" style="color:red; font-size: 12pt"> * </span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input name="txtuserName" id="txtuserName" type="text" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{0,20}$" class="form-control" ng-model="userManagement.name" ng-required="isRequired" autocomplete="off" ng-disabled="disableModule" autofocus>
+                                                    <span ng-show="userManagementForm.$submitted || userManagementForm.txtuserName.$touched">
+                                                        <span ng-show="userManagementForm.txtuserName.$error.required" class="error">
+                                                            Login Name is required
+                                                        </span>
+                                                    </span>
+                                                    <span class="error" ng-show="userManagementForm.txtuserName.$error.pattern">
+                                                        Only alphanumeric characters without space are allowed
+                                                    </span>
+                                                </div>
+
+                                                <div class="col-md-2" style="text-align:left">
+                                                    Email
+                                                    <span class="mandatory" style="color:red; font-size: 12pt"> * </span>
+                                                </div>
+                                                <div class="col-md-4">
+                                                    <input id="txtEmail" name="txtEmail" type="email" pattern="^[a-z0-9_-]+@[a-z0-9.-]+\.[a-z]{2,6}$" class="form-control" autocomplete="off" ng-required="isRequired"
+                                                           ng-model="userManagement.email" placeholder="Example: alex@group.com">
+                                                    <span ng-show="userManagementForm.$submitted || userManagementForm.txtEmail.$touched">
+                                                        <span ng-show="userManagementForm.txtEmail.$error.required" class="error">
+                                                            Email is required
+                                                        </span>
+                                                    </span>
+                                                    <span class="error" ng-show="userManagementForm.txtEmail.$error.pattern">
+                                                        Only valid email address is allowed
+                                                    </span>
+                                                </div>
+
+                                                <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                    <br />
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    Employee
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <ui-select name="txtEmp" id="txtEmp" multiple class="form-control" ng-model="userManagement.emp" sortable="true" close-on-select="false"
+                                                               on-select="onSelectedEmployee(userManagement.emp)">
+                                                        <ui-select-match>{{$item.name}}</ui-select-match>
+                                                        <ui-select-choices refresh="CheckEmployee($select.search)" refresh-delay="400" repeat="option in employeeData | filter: $select.search | limitTo:limitEmploreeSearch ">
+                                                            <div ng-bind-html="option.name | highlight: $select.search"></div>
+                                                        </ui-select-choices>
+                                                    </ui-select>
+                                                </div>
+
+                                                <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                    <br />
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    Role
+                                                    <span class="mandatory" style="color:red; font-size: 12pt"> * </span>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="input-group" ng-class="{uiSelectError: userManagementForm.txtrole.$error.required === true}">
+                                                        <ui-select name="txtrole" id="txtrole" multiple class="form-control" ng-model="userManagement.role" sortable="true" close-on-select="false"  ng-required="isRequired">
+                                                            <ui-select-match>{{$item.name}}</ui-select-match>
+                                                            <ui-select-choices repeat="option in roleData | filter: {name: $select.search}">
+                                                                <div ng-bind-html="option.name | highlight: $select.search"></div>
+                                                                <!--{{option.name}}-->
+                                                            </ui-select-choices>
+                                                        </ui-select>
+                                                    </div>
+                                                    <span ng-show="userManagementForm.$submitted || userManagementForm.txtrole.$touched">
+                                                        <span ng-show="userManagementForm.txtrole.$error.required" class="error">
+                                                            Role is required
+                                                        </span>
+                                                    </span>
+                                                </div>
+
+                                                <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                    <br />
+                                                </div>
+
+                                                <div class="col-md-2">
+                                                    Remarks
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <textarea class="form-control" id="field-5" style="resize:none"
+                                                              ng-model="userManagement.remarks" ></textarea>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                                    <br />
+                                                </div>
+
+                                                <!-------------------------------------line break------------------------------------->
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center">
+                                                    <span class="error" ng-bind="customError">
+                                                    </span>
+                                                </div>
+
+                                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:right">
+                                                    <button class="btn btn-primary btn-success" value="Submit" type="Submit" ng-click="userManagementForm.$valid && save('basicInfoPage')">Save</button>
+                                                    <button type="button" class="btn btn-white" ng-click="cancel()">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div ng-switch-when="Company & Department">
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="vertical-align:middle;text-align:right;padding-top:8px">
+                                        <button id="toggleFilteringCompany" class="btn btn-default btn-icon btn-icon-standalone" ng-click="toggleFilteringCompany()">
+                                            <i class="fa fa-filter" aria-hidden="true"></i>&nbsp;
+                                            <span class="hidden-xs hidden-sm"> Filter</span>
+                                        </button>
+                                        <button id="expandAllCompany" class="btn btn-default" ng-click="expandAllCompany()">
+                                            <i class="fa fa-expand" aria-hidden="true"></i>&nbsp;
+                                            <span class="hidden-xs hidden-sm"> Expand All</span>
+                                        </button>
+                                        <button id="collapseAllCompany" class="btn btn-default" ng-click="collapseAllCompany()">
+                                            <i class="fa fa-compress" aria-hidden="true"></i>&nbsp;
+                                            <span class="hidden-xs hidden-sm"> Collapse All</span>
+                                        </button>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 page-InnerContent relative">
+                                        <div id="gridOptions" ui-grid="gridOptions" ui-grid-auto-resize ui-grid-move-columns ui-grid-resize-columns ui-grid-pinning ui-grid-selection ui-grid-grouping style="height:80%">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:center">
+                                        <span class="error" ng-bind="customError">
+                                        </span>
+                                    </div>
+
+                                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="text-align:right">
+                                        <button class="btn btn-primary btn-success" value="Submit" type="Submit" ng-click="userManagementForm.$valid && save('companyAndDepartmentPage')">Save</button>
+                                        <button type="button" class="btn btn-white" ng-click="cancel()">Close</button>
+                                    </div>
+                                </div>
+
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel-body pan" ng-hide="hideMyProfile">
+                    <div class="modal-body">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="panel-body">
+                                        <div class="row">
+                                            <div class="col-md-3" style="text-align:left">
+                                                <h4 style="font-weight: bold">My Profile</h4>
+                                            </div>
+                                            <div class="col-md-9">
+                                                &nbsp;
+                                            </div>
+
+                                            <div class="col-md-12">
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-2" style="text-align:left">
+                                                Login Name
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.name}}
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Lock Status
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.isLockedStatus}}
+                                                </label>
+
+                                            </div>
+
+                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-2" style="text-align:left">
+                                                Email
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.email}}
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Last Password Changed
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.lastPasswordChangedStatus}}
+                                                </label>
+                                            </div>
+
+                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Role
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.role}}
+                                                </label>
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Last Login
+                                            </div>
+                                            <div class="col-md-4">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.lastLoginStatus}}
+                                                </label>
+
+                                            </div>
+
+                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Employee
+                                            </div>
+                                            <div class="col-md-10">
+                                                <label for="field-1" style="text-align: left; ">
+                                                    {{userManagement.empName}}
+                                                </label>
+                                            </div>
+
+                                            <div class="hidden-xs hidden-sm col-md-12 col-lg-12">
+                                                <br />
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                Remarks
+                                            </div>
+                                            <div class="col-md-10">
+                                                <label for="field-1" style="text-align: left;">
+                                                    {{userManagement.remarks}}
+                                                </label>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="panel panel-grey">
+                                        <div class="panel-heading">Company & Department</div>
+                                        <div class="panel-body">
+                                            <table class="table table-hover table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th style="width: 30%">Company</th>
+                                                        <th>Department</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr ng-repeat="item in companyAndDepartmentList">
+
+                                                        <td style="width: 30%">
+                                                            {{item.companyName}}
+                                                        </td>
+                                                        <td>
+                                                            <div ng-repeat="dep in item.departmentName" style="padding-bottom:10px;">
+                                                                {{dep.departmentName}}
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

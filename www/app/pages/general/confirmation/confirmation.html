@@ -1,0 +1,52 @@
+﻿
+<style>
+    .modal-body {
+        padding: 0px !important;
+    }
+
+    .confirmDialog .ngdialog-content {
+        min-width: 20% !important;
+        height: 150px !important;
+    }
+
+    .confirmDialog .modalHeading {
+        background-color: rgba(195,77,77,1) !important; 
+        font-size: 17px;
+        color: #ffffff;
+    }
+    .confirmDialog{
+        margin-top: 40px;
+    }
+
+    .redddd{ 
+        border-top-style: none;
+        border-right-style: none;
+        border-bottom-style: solid;
+        border-left-style: none;
+        border-color: rgba(195,77,77,1) !important;
+        border-bottom-color: #ff0000;
+    }
+    .cus-panel {  
+        border-top-right-radius: 0 !important;
+        border-top-left-radius: 0 !important;
+        border-color: #e5e5e5 !important;
+    }
+
+</style>
+ 
+    <div class="cus-panel">
+        <div class="panel-heading modalHeading" id="panel-heading">
+           {{confirm.title}}
+        </div> 
+        <div class="panel-body pan">
+            <div class="modal-body">
+                <div class="col-sm-12" style="text-align: center; padding: 13px;">
+                    {{confirm.message}}
+                </div>
+                <div class="col-sm-12" style="text-align: center">
+                    <button class="btn btn-primary btn-success" value="Submit" type="Submit" ng-click="closeThisDialog(true)">Yes</button>&nbsp;
+                    <button type="button" class="btn btn-white" ng-click="closeThisDialog(false)" ng-hide="disableControl" autofocus>No</button>
+                </div>
+            </div>
+        </div>  
+</div>

@@ -1,0 +1,548 @@
+.grid-cell-align-center {
+    text-align: center !important;
+}
+
+.cus-nav-icon {
+    margin-right: 2px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #4D607F !important;
+    color: #ffffff !important;
+    /*B2F9A2*/
+}
+
+.ui-select-bootstrap a:hover {
+    background-color: #DDE4FA !important;
+    color: #121212 !important;
+}
+
+.ui-select-match-text {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 40px;
+}
+
+div.ui-grid-hcenter {
+    minWidth: 50;
+    text-align: center;
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.page-content {
+    padding: 0px 0px 0px 0px !important;
+    height: 100%;
+}
+
+.page-InnerContent {
+    padding: 10px 20px 15px 20px !important;
+    height: 100%;
+}
+
+#title {
+    font-weight: 600 !important;
+}
+
+.modalHeading {
+    background-color: #40516F !important;
+}
+
+
+/*YN Declaration*/
+
+._720kb-datepicker-calendar {
+    width: 75% !important;
+}
+
+#edit {
+    font-size: 1.5em;
+    color: rgb(62, 119, 171);
+}
+
+#delete {
+    font-size: 1.5em;
+    color: red;
+}
+
+.clear {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    position: absolute;
+    right: 15px;
+    top: 4px;
+    color: #337ab7;
+    width: 28px !important;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+.closeBtn {
+    float: right;
+    border-radius: 2px;
+    padding-right: 3px;
+    padding-left: 3px;
+    background-color: white;
+    border-color: white;
+    opacity: 1.5;
+}
+
+.error {
+    color: #db4c4a !important;
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.uiSelectError {
+    border: 1px solid #FF6F6D !important; /*DB4C4A*/
+}
+
+
+.info {
+    color: #db4c4a !important;
+    /*31B0D5*/
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+.link {
+    color: blue !important;
+    font-style: italic;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 13px;
+}
+
+input:invalid {
+    border: 1px solid #DB4C4A !important;
+    /* CSS by GenerateCSS.com */
+}
+
+#breadcrumb {
+    font-size: 12px;
+}
+
+
+/*--End--*/
+
+.font {
+    font-size: large;
+}
+
+.float {
+    float: right;
+}
+
+.pageCtrl {
+    height: 98%;
+}
+
+.gridStyle {
+    height: 95%;
+}
+
+#grid .ui-grid-header-cell .ui-grid-cell-contents {
+    /*text-align: center;*/
+    font-size: 12px;
+    line-height: 20px;
+    height: 100%;
+}
+
+.grid .ui-grid-render-container-body .ui-grid-header-cell,
+.grid .ui-grid-render-container-left .ui-grid-header-cell,
+.grid .ui-grid-row,
+.grid .ui-grid-cell,
+.grid .ui-grid-cell .ui-grid-vertical-bar {
+    font-size: 12px;
+    line-height: 20px;
+}
+
+.margin {
+    margin-right: 5px;
+}
+
+.ui-grid-sort-priority-number {
+    font-size: 0;
+}
+
+input:required {}
+
+input:valid {}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+div.alert1 {
+    color: #ff0000;
+    text-align: center;
+}
+
+body {
+    color: #171515;
+}
+
+.bootstrap-datetimepicker-widget {
+    z-index: 99991;
+}
+
+.ngdialog.ngdialog-theme-default {
+    padding-bottom: 160px;
+    padding-top: 70px;
+}
+
+.ui-grid-top-panel {
+    font-weight: normal;
+}
+
+.daterangepicker .input-mini {
+    width: 100% !important;
+}
+
+.daterangepicker.dropdown-menu {
+    z-index: 999999 !important;
+}
+
+#chat-form .chat-group {
+    margin-top: 0px;
+}
+
+.arrange {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+#chat-form {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 300px;
+    background: #417CB2;
+    z-index: 9999;
+    display: none;
+}
+
+#chat-form .chat-header {
+    font-size: 16px;
+    color: #ffffff;
+    padding: 10px 10px;
+    line-height: 1;
+    margin: 0;
+    border-bottom: 1px solid #6195c5;
+    position: relative;
+}
+
+.modal-button {
+    /*padding: 13px;*/
+    text-align: right;
+}
+
+.br-color {
+    border-color: red !important;
+    border-width: 0px;
+}
+
+.panel-heading-custom {
+    height: 30px;
+    background: #E2E3DE;
+    color: #000000;
+    font-size: 17px;
+    border-color: #e2e2e2;
+    padding: 5px;
+}
+
+.mt {
+    margin-top: 5px;
+}
+
+#topnav1 {
+    display: block;
+    height: 35px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+#sidebarContent {
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    left: 0;
+    width: 970px;
+    overflow: auto;
+}
+
+#content1 {
+    position: absolute;
+    top: 45px;
+    bottom: 0;
+    left: 976px/* 200 + 6*/
+    ;
+    right: 0;
+    overflow: hidden;
+    color: #FFF;
+}
+
+#top-content1 {
+    position: absolute;
+    top: 0;
+    bottom: 136px;
+    /* 130 + 6 */
+    left: 0;
+    right: 0;
+    background-color: #444;
+    overflow: auto;
+}
+
+#sidebar-resizer {
+    background-color: #666;
+    position: absolute;
+    top: 35px;
+    bottom: 0;
+    left: 970px;
+    width: 6px;
+    cursor: e-resize;
+}
+
+#sidebar-resizer:hover,
+#preview-resizer:hover {
+    background-color: #AAA;
+}
+
+.grid-delete-icon {
+    font-size: 1.5em;
+    color: red;
+}
+
+.grid-icon {
+    font-size: 1.5em;
+    color: black;
+}
+
+.grid-edit-icon {
+    font-size: 1.5em;
+    color: blue;
+}
+
+.ui-select-bootstrap > .ui-select-match > .btn {
+    background-color: white !important;
+}
+
+.select2 > .select2-choice.ui-select-match {
+    /* Because of the inclusion of Bootstrap */
+    height: 29px;
+}
+
+.selectize-control > .selectize-dropdown {
+    top: 36px;
+}
+
+
+/* Some additional styling to demonstrate that append-to-body helps achieve the proper z-index layering. */
+
+.select-box {
+    position: relative;
+    z-index: 1;
+}
+
+.alert-info.positioned {
+    margin-top: 1em;
+    position: relative;
+    z-index: 10000;
+    /* The select2 dropdown has a z-index of 9999 */
+}
+
+.input-group {
+    width: 100%;
+}
+
+.switch {
+    height: 25px !important;
+}
+
+.switch small {
+    height: 25px !important;
+    width: 25px !important;
+}
+
+.switch .on {
+    top: 7% !important;
+}
+
+.switch .off {
+    top: 7% !important;
+}
+
+.switch.checked small {
+    left: 27px !important;
+}
+
+.labelcolor {
+    color: black;
+    font-weight: bold;
+}
+
+.page-header {
+    padding-bottom: 0px;
+    margin: 2px 0 8px;
+    border-bottom: 1px solid #898181;
+}
+
+.alignment {
+    padding: 3px 8px !important;
+}
+
+.panel-body {
+    padding: 4px;
+}
+
+.table {
+    margin-bottom: 1px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    padding: 4px;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+.custom {
+    margin-left: 10px;
+}
+
+.issue-data-block {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+
+.issue-data-block:hover,
+.issue-data-block.focused {
+    background-color: #f5f5f5;
+    border-left: 5px solid #3572b0;
+    padding-left: 5px;
+}
+
+input::-webkit-input-placeholder {
+    font-style: italic !important;
+}
+
+input:-ms-input-placeholder {
+    font-style: italic !important;
+}
+
+input:-moz-placeholder {
+    font-style: italic !important;
+}
+
+input::-moz-placeholder {
+    font-style: italic !important;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+    color: #333;
+}
+
+.ngdialog.ngdialog-theme-default.custom-width .ngdialog-content {
+    /*    width: 1000px;*/
+    width: 85%;
+}
+
+.ngdialog.ngdialog-theme-default.custom-width900 .ngdialog-content {
+    width: 1200px;
+}
+
+.ngdialog.ngdialog-theme-default.custom-height200 .ngdialog-content {
+    width: 1100px;
+    min-height:600px !important;
+    
+}
+
+.ui-select-match-text > span {
+    width: 80%;
+    overflow: hidden;
+    text-overflow: ellipsis !important;
+    position: absolute;
+}
+
+.ui-select-bootstrap .ui-select-choices-row > a {
+    white-space: normal;
+}
+
+input.ui-select-search {
+    /* width: 100% !important;*/
+}
+
+.grid-msg-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.grid-msg-overlay .msg {
+    opacity: 1;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 30%;
+    height: 10%;
+    background-color: #eee;
+    border-radius: 4px;
+    border: 1px solid #555;
+    text-align: center;
+    font-size: 24px;
+    display: table;
+}
+
+.grid-msg-overlay .msg span {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.label-danger, .badge-danger {
+    background-color: red;
+    background-image: none !important;
+}
+
+.ui-select-multiple.ui-select-bootstrap {
+    min-height: 34px;        
+    height: auto;
+    padding: .3em;
+}
+
+.btnLink {
+    font-weight: normal;
+}
+
+a {
+    font-weight: normal;
+    color: black;
+}
+
+.label-review, .badge-review {
+    background-color: #e65d20;
+    background-image: none !important;
+}
+

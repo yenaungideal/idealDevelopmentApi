@@ -1,0 +1,61 @@
+<style>
+    .headerstyle {
+        text-align: center;
+    }
+</style>
+
+<div ng-controller="ctrlUserManagementView">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div id="title-breadcrumb-option-demo" class="page-title-breadcrumb">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                        <div class="page-header pull-left">
+                            <div id="title" class="page-title">{{data.title}}</div>
+                        </div>
+                        <ol class="breadcrumb page-breadcrumb  pull-left">
+                            <li><i class="fa fa-home"></i>&nbsp;<a href="/#/">Home</a>&nbsp;<i class="fa fa-angle-right"></i></li>
+                            <li ng-repeat="(k,v) in data.breadcrumb" ng-class="{active:$last}">
+                                {{v}}
+                                <i ng-if="!$last" class="fa fa-angle-right"></i>
+                            </li>
+                        </ol>
+                    </div>
+                    <div class="col-xs-0 col-sm-6 col-md-6 col-lg-6" style="text-align:right">
+                        <div style="vertical-align:middle;text-align:right;padding-top:8px">
+                            <button id="toggleFiltering" class="btn btn-primary btn-icon btn-icon-standalone" ng-click="toggleFiltering()">
+                                <i class="fa fa-filter" aria-hidden="true"></i>&nbsp;
+                                <span class="hidden-xs hidden-sm"> Filter</span>
+                            </button>
+
+                            <button id="exporttopdf" class="btn btn-primary btn-icon btn-icon-standalone" ng-click="exporttopdf()">
+                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>&nbsp;
+                                <span class="hidden-xs hidden-sm"> Export to PDF</span>
+                            </button>
+
+                            <button id="exporttoexcell" class="btn btn-primary btn-icon btn-icon-standalone" ng-click="exporttoexcel()">
+                                <i class="fa fa-file-excel-o" aria-hidden="true"></i>&nbsp;
+                                <span class="hidden-xs hidden-sm"> Export to CSV</span>
+                            </button>
+
+                            <!-- <button id="add" class="btn btn-primary btn-icon btn-icon-standalone" ng-click="edit()" ng-show="permissions.user.write">
+                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+                                <span class="hidden-xs hidden-sm"> Add</span>
+                            </button> -->
+                            <button id="add" class="btn btn-primary btn-icon btn-icon-standalone" ng-click="edit()" >
+                                <i class="fa fa-plus" aria-hidden="true"></i>&nbsp;
+                                <span class="hidden-xs hidden-sm"> Add</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-InnerContent">
+        <div ui-grid="gridOptions" ui-grid-pagination ui-grid-exporter ui-grid-auto-resize ui-grid-move-columns ui-grid-grouping ui-grid-resize-columns class="grid" id="userManagementView" style="height:670px">
+        </div>
+    </div>
+</div>

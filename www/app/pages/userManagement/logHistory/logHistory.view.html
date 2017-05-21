@@ -1,0 +1,76 @@
+﻿<style>
+    .txt-algn-left {
+        text-align: left !important;
+    }
+
+    .radio-width {
+        width: 110px;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+</style>
+<div ng-controller="ctrlLogHistory">
+    <div class="page-InnerContent relative">
+        <div class="row">
+            <div class="modal-body">
+                <form name="logHistoryForm" id="logHistoryForm" role="form" novalidate>
+                    <div class="panel-body pan">
+                        <div class="modal-body" style="padding:15px;">
+                            <div class="form-group main-container">
+                                <label id="lblTxtAlign" class="col-xs-12 col-sm-12 col-md-12 col-lg-2 control-label txt-algn-left txt-algn-left" for="field-1">
+                                    From
+                                </label>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <datepicker date-format="dd-MMM-yyyy">
+                                        <input type="text" id="fromDate" name="fromDate" class="form-control" ng-model="fromDate" />
+                                    </datepicker>
+                                </div>
+
+                                <label id="lblTxtAlign" class="col-xs-12 col-sm-12 col-md-12 col-lg-2 control-label txt-algn-left txt-algn-left" for="field-1">
+                                    To
+                                </label>
+                                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4">
+                                    <datepicker date-format="dd-MMM-yyyy">
+                                        <input type="text" id="toDate" name="toDate" class="form-control" ng-model="toDate" />
+                                    </datepicker>
+                                </div>
+
+                                <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+
+                                <label class="col-sm-2 control-label" for="field-1" style="text-align:left">
+
+                                </label>
+                                <div class="col-sm-4" style="text-align:right">
+                                    <span class="error" ng-bind="customError">
+                                    </span>
+                                </div>
+                                <div class="col-sm-2" style="text-align:right">
+                                    <span class="error" ng-bind="customError">
+                                    </span>
+                                </div>
+                                <div class="col-sm-4" style="text-align:right">
+                                    <button class="btn btn-primary btn-success" type="Submit" ng-click="refreshView()">Filter</button>
+                                </div>
+
+                                <div class="hidden-xs col-sm-12 col-md-12 col-lg-12">
+                                    <br />
+                                </div>
+
+                            </div>
+                        </div>
+                   </div>
+                </form>
+
+                <div class="page-InnerContent">
+                    <div ui-grid="gridOptions" style="height:400px" ui-grid-pagination ui-grid-exporter ui-grid-auto-resize ui-grid-move-columns ui-grid-resize-columns ui-grid-pinning class="grid" id="logHistory">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

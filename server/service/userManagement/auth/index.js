@@ -1,0 +1,1 @@
+﻿exports.verify = require('./auth.verify.service'); 

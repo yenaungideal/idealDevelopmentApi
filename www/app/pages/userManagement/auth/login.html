@@ -1,0 +1,60 @@
+<style>
+    .page-content {
+        padding: 0px !important;
+    }
+
+    #header-topbar-option-demo {
+    display: none !important;
+}
+
+</style>
+<div id="signin-page" ng-controller="ctrlLogin">
+    <div class="page-form-wrapper"></div>
+    <div class="page-form">
+        <form id="authForm" name="authForm" class="form" novalidate>
+            <div class="header-content">
+                <h1>LogIn</h1>
+            </div>
+            <div class="body-content">
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-user"></i>
+                        <input type="text" placeholder="Username" name="username" ng-model="userName" ng-required="isRequired" class="form-control required" autocomplete="off" autofocus />
+                    </div>
+                    <div class ="error"  ng-show="authForm.username.$error.required">{{userNameVal}}</div>
+                </div>
+                <div class="form-group">
+                    <div class="input-icon right">
+                        <i class="fa fa-key"></i>
+                        <input type="password" placeholder="Password" name="password" ng-model="password" ng-required="isRequired" class="form-control required" autocomplete="off" />
+                    </div>
+                    <div class ="error" ng-show="authForm.password.$error.required">{{passwordVal}}</div>
+                </div>
+                <div class="form-group pull-left">
+                   <!-- <a href='javascript:void(0);' class='btn-forgot-pwd'>
+                        Forgot Password ?
+                    </a>
+ -->
+                    <div class ="error">{{authVal}}</div>
+                </div>
+                <div class="form-group pull-right">
+                    <button type="Submit" ng-click="login()" class="btn btn-success">
+                        Log In
+                        &nbsp;<i class="fa fa-chevron-circle-right"></i>
+                    </button>
+                </div>
+              
+                <!--<div style="color:red">{{authVal}}</div>-->
+                <div class="clearfix"></div>
+                <!--<div class="forget-password">
+                                        <a href='javascript:void(0);' class='btn-forgot-pwd'>
+                                            Forgot Password?
+                                        </a>
+                                            <p>no worries, click <a href='javascript:void(0);' class='btn-forgot-pwd'>here</a> to reset your password.</p>
+                </div>-->
+            </div>
+
+
+        </form>
+    </div>
+</div>
