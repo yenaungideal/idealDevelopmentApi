@@ -22,6 +22,7 @@
     "morgan": "^1.7.0",
     "node-schedule": "^1.2.0",
     "nodemailer": "^2.7.0",
+    "nodemon": "^1.11.0",
     "passport": "^0.3.2",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
@@ -31,6 +32,7 @@
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-env": "^0.4.0",
+    "gulp-install": "^1.1.0",
     "gulp-load-plugins": "^1.4.0",
     "gulp-nodemon": "^2.2.1"
   },
