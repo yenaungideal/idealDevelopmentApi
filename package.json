@@ -9,17 +9,6 @@
   "author": "Cutech",
   "license": "ISC",
   "dependencies": {
-    "@angular/animations": "^4.2.2",
-    "@angular/common": "^4.2.2",
-    "@angular/compiler": "^4.2.2",
-    "@angular/compiler-cli": "^4.2.2",
-    "@angular/core": "^4.2.2",
-    "@angular/forms": "^4.2.2",
-    "@angular/http": "^4.2.2",
-    "@angular/platform-browser": "^4.2.2",
-    "@angular/platform-browser-dynamic": "^4.2.2",
-    "@angular/platform-server": "^4.2.2",
-    "@angular/router": "^4.2.2",
     "bcrypt-nodejs": "0.0.3",
     "bluebird": "^3.4.6",
     "body-parser": "^1.15.2",
@@ -38,7 +27,6 @@
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
     "regex": "^0.1.1",
-    "typescript": "^2.3.4",
     "winston": "^2.3.0"
   },
   "devDependencies": {
